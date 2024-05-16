@@ -61,5 +61,34 @@ router.get('/:id', function(req, res) {
   })
 });
 
+router.post('/', function(req, res) {
+  Contrato.insert(req.body)
+  .then(function(data){
+    res.jsonp(data)
+  })
+  .catch(function(erro){
+    res.jsonp(erro)
+  })
+});
+
+router.delete('/:id', function(req, res) {
+  Contrato.delete(req.params.id)
+  .then(function(data) {
+    res.jsonp(data)
+  })
+  .catch(function(erro) {
+    res.jsonp(erro)
+  })
+})
+
+router.put('/:id', function(req, res) {
+  Contrato.update(req.params.id, req.body)
+  .then(function(dados) {
+    res.jsonp(dados)
+  })
+  .catch(function(erro) {
+    res.jsonp(erro)
+  })
+})
 
 module.exports = router;

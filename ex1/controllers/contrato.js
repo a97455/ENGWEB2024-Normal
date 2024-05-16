@@ -26,8 +26,24 @@ module.exports.findById = function(id){
 
 module.exports.insert = function(contrato){
     return Contrato.create(contrato)
+    .then(function(resposta) {
+        return resposta
+    })
+    .catch(function(erro) {
+        return erro
+    })
 }
 
 module.exports.update = function(id,contrato){
     return Contrato.updateOne({_id:id}, contrato)
+}
+
+module.exports.delete = function(id) {
+    return Contrato.deleteOne({_id: id})
+    .then(function(resposta) {
+        return resposta    
+    })
+    .catch(function(erro) {
+        return erro        
+    })
 }
