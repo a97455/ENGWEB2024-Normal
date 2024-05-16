@@ -19,12 +19,12 @@ block content
                     tbody
                         tr
                             td 
-                                a(href='/contratos/'+contrato._id) #{contrato._id}
+                                a(href= contrato._id) #{contrato._id}
                             td #{contrato.objectoContrato}
                             td #{contrato.dataCelebracaoContrato}
                             td #{contrato.precoContratual}
                             td 
-                                a(href='/contratos/'+contrato.NIPC_entidade_comunicante) #{contrato.NIPC_entidade_comunicante}
+                                a(href='/entidades/'+contrato.NIPC_entidade_comunicante) #{contrato.NIPC_entidade_comunicante}
                             td #{contrato.entidade_comunicante}
                             
         footer.w3-container.w3-blue

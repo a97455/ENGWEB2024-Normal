@@ -13,4 +13,15 @@ router.get('/', function(req, res) {
   })
 });
 
+router.get('/:id', function(req, res) {
+  var d = new Date().toISOString().substring(0, 16)
+  axios.get('http://localhost:16000/contratos/'+req.params.id)
+  .then(function(resposta){
+    res.render('contrato', {title: "Contrato " + resposta.data._id, contrato: resposta.data, date: d});
+  })
+  .catch(function(erro){
+    res.render('error',{error: erro, message: 'Erro ao recuperar os contratos'})
+  })
+});
+
 module.exports = router;
