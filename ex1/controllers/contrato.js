@@ -8,6 +8,14 @@ module.exports.listByEntidade = function(nipc_entidade){
     return Contrato.find({NIPC_entidade_comunicante: nipc_entidade}).sort({tipoprocedimento: 1}).exec()
 }
 
+module.exports.listEntidades = function() {
+    return Contrato.distinct("entidade_comunicante").sort().exec();
+}
+
+module.exports.listTiposProcedimento = function() {
+    return Contrato.distinct("tipoprocedimento").sort().exec();
+}
+
 module.exports.listByTipo = function(tipoprocedimento){
     return Contrato.find({tipoprocedimento: tipoprocedimento}).sort({tipoprocedimento: 1}).exec()
 }

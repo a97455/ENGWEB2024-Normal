@@ -31,6 +31,26 @@ router.get('/', function(req, res) {
   }
 });
 
+router.get('/entidades', function(req, res) {
+  Contrato.listEntidades()
+  .then(function(data){
+    res.jsonp(data)
+  })
+  .catch(function(erro){
+    res.jsonp(erro)
+  })
+});
+
+router.get('/tipos', function(req, res) {
+  Contrato.listTiposProcedimento()
+  .then(function(data){
+    res.jsonp(data)
+  })
+  .catch(function(erro){
+    res.jsonp(erro)
+  })
+});
+
 router.get('/:id', function(req, res) {
   Contrato.findById(req.params.id)
   .then(function(data){
